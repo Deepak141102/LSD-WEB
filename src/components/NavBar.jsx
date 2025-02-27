@@ -21,7 +21,7 @@ function NavBar() {
     // <div className=" bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <nav
         className={`fixed mt-4 ml-5 bg-white dark:bg-gray-800 rounded-full p-2 shadow-2xl backdrop-blur-lg 
-        bg-opacity-80 dark:bg-opacity-80 overflow-hidden transition-all duration-300 max-md:w-[25vw]
+        bg-opacity-80 dark:bg-opacity-80 overflow-hidden transition-all duration-300 max-md:w-[25vw] z-50
         ${isExpanded ? "w-[40vw]" : "w-[7.8vw] hover:w-[9vw]"}`}
       >
         <div className="relative">
