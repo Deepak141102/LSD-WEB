@@ -1,12 +1,12 @@
 import React from 'react';
 import { ArrowRight, Sparkles, Zap, Shield } from 'lucide-react';
-
+import logo from "../../public/img/logo.png"
 const Hero = () => {
   return (
     <div className="relative overflow-hidden -z-20">
         <div className='w-full h-[100px] p-5 flex justify-end'>
 
-        <img src="../../public/img/logo.png" alt="" className='object-cover h-full w-[100px]'/>
+        <img src={logo} alt="" className='object-cover h-full w-[100px]'/>
         </div>
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
