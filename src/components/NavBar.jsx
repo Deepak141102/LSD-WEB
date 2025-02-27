@@ -21,7 +21,7 @@ function NavBar() {
     // <div className=" bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <nav
         className={`fixed mt-4 ml-5 bg-white dark:bg-gray-800 rounded-full p-2 shadow-2xl backdrop-blur-lg 
-        bg-opacity-80 dark:bg-opacity-80 overflow-hidden transition-all duration-300
+        bg-opacity-80 dark:bg-opacity-80 overflow-hidden transition-all duration-300 max-md:w-[25vw]
         ${isExpanded ? "w-[40vw]" : "w-[7.8vw] hover:w-[9vw]"}`}
       >
         <div className="relative">
@@ -29,7 +29,7 @@ function NavBar() {
             <div className="absolute h-3 w-3 bg-blue-500 rounded-full -top-1.5 left-1/2 -translate-x-1/2" />
           </div>
 
-          <div className="flex items-center gap-8 px-[1rem] py-3">
+          <div className="flex items-center gap-8 px-[1rem] py-3 max-md:flex-col">
             <NavButton icon={Home} label="Home" />
 
             {!isExpanded && (
@@ -44,7 +44,7 @@ function NavBar() {
               <NavButton key={index} {...item} />
             ))}
 
-            <div className="flex items-center gap-8 ml-auto">
+            <div className="flex items-center gap-8 ml-auto max-md:flex max-md:flex-col">
               <button
                 onClick={() => setDarkMode(!darkMode)}
                 className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 
