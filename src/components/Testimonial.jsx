@@ -44,7 +44,7 @@ function Testimonials() {
   ];
 
   return (
-    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 relative bg-slate-950">
+    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 relative bg-slate-950 -z-10">
       <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
       <div className="relative max-w-7xl mx-auto text-center mb-16">
         <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">Testimonials</h2>
