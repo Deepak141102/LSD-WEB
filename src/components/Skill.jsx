@@ -72,7 +72,7 @@ function Skill() {
           ))}
         </div>
 
-        <div className="mt-20 bg-white rounded-2xl shadow-xl p-8 lg:p-12 relative -z-10">
+        <div className="mt-20 bg-white rounded-2xl shadow-xl p-8 lg:p-12 relative ">
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Design Philosophy</h2>

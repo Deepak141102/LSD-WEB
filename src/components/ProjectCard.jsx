@@ -4,7 +4,7 @@ import { ExternalLink } from 'lucide-react';
  const ProjectCard = ({ project }) => {
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
-      <div className="relative h-48 overflow-hidden -z-10">
+      <div className="relative h-48 overflow-hidden">
         <img 
           src={project.image} 
           alt={project.title} 
