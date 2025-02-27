@@ -4,13 +4,17 @@ import { ArrowRight, Sparkles, Zap, Shield } from 'lucide-react';
 const Hero = () => {
   return (
     <div className="relative overflow-hidden -z-20">
+        <div className='w-full h-[100px] p-5 flex justify-end'>
+
+        <img src="../../public/img/logo.png" alt="" className='object-cover h-full w-[100px]'/>
+        </div>
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 max-md:py-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="inline-flex items-center px-4 py-2 bg-indigo-50 rounded-full text-sm font-medium text-indigo-700">
