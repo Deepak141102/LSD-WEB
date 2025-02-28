@@ -1,13 +1,16 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+// tailwind.config.js
+module.exports = {
   darkMode: 'class',
-  theme: {
+  // ... rest of your config
+  variants: {
     extend: {
-      animation: {
-        'spin-slow': 'spin 8s linear infinite',
-      },
+      backgroundColor: ['dark'],
+      textColor: ['dark'],
+      borderColor: ['dark'],
+      opacity: ['dark'],
+      gradientColorStops: ['dark'],
+      filter: ['dark'],
+      invert: ['dark'],
     },
   },
-  plugins: [],
-};
+}

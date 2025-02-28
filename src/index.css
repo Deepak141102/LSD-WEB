@@ -1,33 +1,21 @@
-@import "tailwindcss";
-@layer utilities {
-  .animate-spin-slow {
-    animation: spin 8s linear infinite;
-  }
-}
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.animate-spin-slow {
-  animation: spin-slow 12s linear infinite;
-}
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
   }
-  
+  @layer utilities {
+    .dark .dark\:invert {
+      filter: invert(1);
+    }
+  }
   .dark {
     --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  }
+
+  body {
+    @apply bg-[hsl(var(--background))] transition-colors duration-300;
   }
 }

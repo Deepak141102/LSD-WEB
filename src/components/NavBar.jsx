@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {
-  Home,
-  Rocket,
-  Brain,
-  Compass,
-  Sun,
-  Moon,
-  ChevronsRight,
-  X,
-} from "lucide-react";
+import { Home, Rocket, Brain, Compass, Sun, Moon, ChevronsRight, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 function NavBar() {
-  const [darkMode, setDarkMode] = useState(
-    () => localStorage.getItem("theme") === "dark"
-  );
+  // const [darkMode, setDarkMode] = useState(() => 
+  //   localStorage.getItem("theme") === "dark"
+  // );
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -23,11 +15,10 @@ function NavBar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    console.log("Applying dark mode:", darkMode);
-    document.documentElement.classList.toggle("dark", darkMode);
-    localStorage.setItem("theme", darkMode ? "dark" : "light");
-  }, [darkMode]);
+  // useEffect(() => {
+  //   document.documentElement.classList.toggle("dark", darkMode);
+  //   localStorage.setItem("theme", darkMode ? "dark" : "light");
+  // }, [darkMode]);
 
   const mainItems = [
     { icon: Rocket, label: "Explore" },
@@ -43,12 +34,8 @@ function NavBar() {
       bg-opacity-80 dark:bg-opacity-80 overflow-hidden transition-all duration-300 
       ${
         isMobile
-          ? isExpanded
-            ? "w-[90vw]"
-            : "w-[70vw]"
-          : isExpanded
-          ? "w-[40vw]"
-          : "w-[7.8vw] hover:w-[9vw]"
+          ? isExpanded ? "w-[90vw]" : "w-[70vw]"
+          : isExpanded ? "w-[40vw]" : "w-[7.8vw] hover:w-[9vw]"
       } 
       ${isMobile && "max-w-[400px]"} z-50`}
     >
@@ -59,55 +46,49 @@ function NavBar() {
           </div>
         )}
 
-        <div
-          className={`flex items-center ${
-            isMobile ? "justify-around" : "gap-8"
-          } px-[1rem] py-3`}
-        >
+        <div className={`flex items-center ${isMobile ? "justify-around" : "gap-8"} px-[1rem] py-3`}>
           {!isMobile && <NavButton icon={Home} label="Home" />}
 
           {!isExpanded && !isMobile && (
-            <NavButton
-              icon={ChevronsRight}
+            <NavButton 
+              icon={ChevronsRight} 
               label="More"
               onClick={() => setIsExpanded(true)}
             />
           )}
 
-          {isExpanded &&
-            mainItems.map((item, index) => (
-              <NavButton key={index} {...item} isMobile={isMobile} />
-            ))}
+          {isExpanded && mainItems.map((item, index) => (
+            <NavButton key={index} {...item} isMobile={isMobile} />
+          ))}
 
           {isMobile && !isExpanded && (
             <>
               <NavButton icon={Home} label="Home" />
-              <NavButton
-                icon={ChevronsRight}
+              <NavButton 
+                icon={ChevronsRight} 
                 label="More"
                 onClick={() => setIsExpanded(true)}
               />
             </>
           )}
 
-          <div
-            className={`flex items-center ${
-              isMobile ? "gap-4" : "gap-8"
-            } ml-auto`}
-          >
-            <button
-              onClick={() => setDarkMode(!darkMode)}
+          <div className={`flex items-center ${isMobile ? "gap-4" : "gap-8"} ml-auto`}>
+            {/* <button
+              // onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 
                 transition-colors duration-300"
-              aria-label="Toggle dark mode"
-            >
-              {darkMode ? (
+              // aria-label="Toggle dark mode"
+            > */}
+              {/* <ThemeToggle/> */}
+              {/* {darkMode ? (
                 <Sun className="h-5 w-5 text-yellow-500" />
               ) : (
                 <Moon className="h-5 w-5 text-gray-700 dark:text-gray-300" />
-              )}
-            </button>
-
+              )} */}
+            {/* </button> */}
+            <div className="p-2"> {/* Changed from button to div */}
+  <ThemeToggle/>
+</div>
             {isExpanded && (
               <NavButton
                 icon={X}
@@ -131,23 +112,17 @@ const NavButton = ({ icon: Icon, label, onClick, isMobile }) => (
     }`}
   >
     <div className="relative">
-      <div
-        className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 
-        rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 max-md:text-sm"
-      />
-      <Icon
-        className={`${
-          isMobile ? "h-5 w-5 mx-2" : "h-6 w-6"
-        } text-gray-700 dark:text-gray-300 group-hover:text-blue-500 dark:group-hover:text-blue-400 
-      transition-colors duration-300`}
-      />
+      <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 
+        rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 max-md:text-sm" />
+      <Icon className={`${
+        isMobile ? "h-5 w-5 mx-2" : "h-6 w-6"
+      } text-gray-700 dark:text-gray-300 group-hover:text-blue-500 dark:group-hover:text-blue-400 
+      transition-colors duration-300`} />
     </div>
     {!isMobile && (
-      <span
-        className="absolute -bottom-6 text-xs font-medium text-gray-600 
+      <span class="absolute -bottom-6 text-xs font-medium text-gray-600 
         dark:text-gray-400 opacity-0 group-hover:opacity-100 transform 
-        group-hover:-translate-y-1 transition-all duration-300"
-      >
+        group-hover:-translate-y-1 transition-all duration-300">
         {label}
       </span>
     )}

@@ -48,7 +48,7 @@ function Skill() {
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 relative bg-slate-950">
       {/* Background Grid Effect */}
       {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"></div> */}
-      <div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">Expertise</h2>
