@@ -3,6 +3,7 @@ import { ExternalLink } from 'lucide-react';
 
 const ProjectCard = ({ project }) => {
   return (
+    <>
     <div className="relative bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 flex flex-col h-full 
       dark:bg-gradient-to-b from-[#1e293b] to-[#0f172a] dark:border dark:border-gray-700 
       hover:-translate-y-1 hover:shadow-xl animate-fadeIn">
@@ -67,7 +68,10 @@ const ProjectCard = ({ project }) => {
           View Project <ExternalLink size={16} />
         </a>
       </div>
+      
     </div>
+    
+    </>
   );
 };
 

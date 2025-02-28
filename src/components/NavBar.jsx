@@ -120,7 +120,7 @@ const NavButton = ({ icon: Icon, label, onClick, isMobile }) => (
       transition-colors duration-300`} />
     </div>
     {!isMobile && (
-      <span class="absolute -bottom-6 text-xs font-medium text-gray-600 
+      <span className="absolute -bottom-6 text-xs font-medium text-gray-600 
         dark:text-gray-400 opacity-0 group-hover:opacity-100 transform 
         group-hover:-translate-y-1 transition-all duration-300">
         {label}

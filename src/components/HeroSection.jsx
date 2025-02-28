@@ -68,14 +68,14 @@ const Hero = () => {
 <div className="absolute inset-0 bg-gradient-to-tr from-black/40 dark:from-black/60 to-transparent pointer-events-none"></div>            </div>
             
             {/* Floating elements */}
-            <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4 rotate-3">
+            <div className="absolute -top-6 -right-6 bg-white rounded-lg shadow-lg p-4 rotate-3 max-md:-right-2">
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 <span className="text-sm font-medium">98% Satisfaction</span>
               </div>
             </div>
             
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 -rotate-3">
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 -rotate-3 max-md:-left-2 max-md:mb-4">
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-indigo-500 rounded-full"></div>
                 <span className="text-sm font-medium">24/7 Support</span>

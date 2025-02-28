@@ -4,6 +4,7 @@ import Hero from "./components/HeroSection";
 import Skill from "./components/Skill";
 import Project from "./components/Project";
 import Testimonials from "./components/Testimonial";
+import Footer from "./components/Footer";
 // import Footer from "./components/Footer";
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
       <Skill/>
       <Project/>
       <Testimonials/>
-      {/* <Footer/> */}
+      <Footer/>
       
 
 
