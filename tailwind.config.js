@@ -1,16 +1,18 @@
-// tailwind.config.js
 module.exports = {
-  darkMode: 'class',
-  // ... rest of your config
-  variants: {
-    extend: {
-      backgroundColor: ['dark'],
-      textColor: ['dark'],
-      borderColor: ['dark'],
-      opacity: ['dark'],
-      gradientColorStops: ['dark'],
-      filter: ['dark'],
-      invert: ['dark'],
+    darkMode: 'class',
+    content: ["./src/**/*.{js,jsx,ts,tsx}"], // Ensure it scans all files
+    theme: {
+      extend: {
+        animation: {
+          'spin-slow': 'spin 12s linear infinite',
+        },
+        keyframes: {
+          spin: {
+            from: { transform: 'rotate(0deg)' },
+            to: { transform: 'rotate(360deg)' },
+          }
+        }
+      },
     },
-  },
-}
+    plugins: [],
+  }

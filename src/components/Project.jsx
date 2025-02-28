@@ -62,7 +62,7 @@ const ProjectSection = () => {
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-8">
       <div className="mb-12 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-4 dark:text-white">Featured Projects</h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Explore my latest work across web development, design, and application building.
         </p>
