@@ -31,7 +31,7 @@ const Hero = () => {
   text-gray-900 dark:text-gray-100 transition-colors duration-300"
             >
               Design with confidence and
-              <span className="text-indigo-600 dark:text-indigo-400">
+              <span className="text-indigo-600 dark:text-indigo-400 ml-3">
                 creativity
               </span>
             </h1>
