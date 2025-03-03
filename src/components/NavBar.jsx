@@ -56,7 +56,7 @@ function NavBar() {
 
         <div
           className={`flex items-center ${
-            isMobile ? "gap-[1.4rem]" : "gap-8"
+            isMobile ? "justify-around" : "gap-8"
           } px-[1rem] py-3`}
         >
           {!isMobile && <NavButton icon={Home} label="Home" />}
