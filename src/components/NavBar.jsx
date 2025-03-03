@@ -42,7 +42,7 @@ function NavBar() {
           </div>
         )}
 
-        <div className={`flex items-center ${isMobile ? "justify-around" : "gap-8"} px-[1rem] py-3`}>
+        <div className={`flex items-center ${isMobile ? "gap-3" : "gap-8"} px-[1rem] py-3`}>
           {!isMobile && <NavButton icon={Home} label="Home" />}
 
           {!isExpanded && !isMobile && (
