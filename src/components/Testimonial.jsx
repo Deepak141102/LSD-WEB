@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
 
 function TestimonialCard({ name, role, feedback, image }) {
@@ -43,8 +43,51 @@ function Testimonials() {
     },
   ];
 
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
+  const loopTestimonials = [testimonials[testimonials.length - 1], ...testimonials, testimonials[0]];
+  const [index, setIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!isSmallScreen) return;
+
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => prevIndex + 1);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isSmallScreen]);
+
+  useEffect(() => {
+    if (!isSmallScreen) return;
+
+    if (index === loopTestimonials.length - 1) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setIndex(1);
+      }, 500);
+    } else if (index === 0) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setIndex(loopTestimonials.length - 2);
+      }, 500);
+    } else {
+      setIsTransitioning(true);
+    }
+  }, [index, isSmallScreen]);
+
   return (
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 relative bg-slate-950 -z-10">
+      
       <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
       <div className="relative max-w-7xl mx-auto text-center mb-16">
         <h2 className="text-base font-semibold text-indigo-600 tracking-wide uppercase">Testimonials</h2>
@@ -56,17 +99,37 @@ function Testimonials() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative max-w-7xl mx-auto">
-        {testimonials.map((testimonial, index) => (
-          <TestimonialCard 
-            key={index}
-            name={testimonial.name}
-            role={testimonial.role}
-            feedback={testimonial.feedback}
-            image={testimonial.image}
-          />
-        ))}
-      </div>
+      {isSmallScreen ? (
+        <div className="relative overflow-hidden w-full">
+          <div
+            className={`flex ${isTransitioning ? "transition-transform duration-500 ease-in-out" : ""}`}
+            style={{ transform: `translateX(-${index * 100}%)` }}
+          >
+            {loopTestimonials.map((testimonial, i) => (
+              <div key={i} className="w-full min-w-full px-2">
+                <TestimonialCard
+                  name={testimonial.name}
+                  role={testimonial.role}
+                  feedback={testimonial.feedback}
+                  image={testimonial.image}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative max-w-7xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard
+              key={index}
+              name={testimonial.name}
+              role={testimonial.role}
+              feedback={testimonial.feedback}
+              image={testimonial.image}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

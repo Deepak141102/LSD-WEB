@@ -92,6 +92,7 @@ function Skill() {
 
   return (
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 relative bg-slate-950 -z-50">
+      
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16">
