@@ -67,26 +67,27 @@ const About = () => {
 
         {/* Services Carousel */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
-          <div className="relative">
-            <div className="flex justify-center items-start space-x-8">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className={`w-full max-w-sm p-6 rounded-xl transition-all duration-500 transform
-                    ${index === activeService ? 'bg-blue-600 scale-105' : 'bg-gray-800 scale-95 opacity-75'}
-                  `}
-                >
-                  <div className="flex items-center mb-4">
-                    {service.icon}
-                    <h3 className="text-xl font-semibold ml-3">{service.title}</h3>
-                  </div>
-                  <p className="text-gray-300">{service.description}</p>
-                </div>
-              ))}
-            </div>
+  <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
+  <div className="relative">
+    <div className="flex flex-wrap justify-center items-start gap-8">
+      {services.map((service, index) => (
+        <div
+          key={index}
+          className={`w-full sm:w-80 md:w-96 lg:w-80 xl:w-72 p-6 rounded-xl transition-all duration-500 transform
+            ${index === activeService ? 'bg-blue-600 scale-105' : 'bg-gray-800 scale-95 opacity-75'}
+          `}
+        >
+          <div className="flex items-center mb-4">
+            {service.icon}
+            <h3 className="text-xl font-semibold ml-3">{service.title}</h3>
           </div>
+          <p className="text-gray-300">{service.description}</p>
         </div>
+      ))}
+    </div>
+  </div>
+</div>
+
 
         {/* Process Section */}
         <div className="max-w-4xl mx-auto">
