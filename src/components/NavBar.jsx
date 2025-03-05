@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Home, Rocket, Brain, Compass, Sun, Moon, ChevronsRight, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Home, Rocket, Brain, MailPlus, ChevronsRight, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 function NavBar() {
-  // const [darkMode, setDarkMode] = useState(() => 
-  //   localStorage.getItem("theme") === "dark"
-  // );
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
@@ -15,17 +14,16 @@ function NavBar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-
   const mainItems = [
-    { icon: Rocket, label: "Explore" },
-    { icon: Brain, label: "Learn" },
-    { icon: Compass, label: "Navigate" },
+    { icon: Rocket, label: "Explore",path:"/explore" },
+    { icon: Brain, label: "Learn",path:"/learn" },
+    { icon: MailPlus, label: "About", path: "/about" },
   ];
 
   return (
     <nav
       className={`fixed ${
-        isMobile ? "bottom-4 left-1/2 -translate-x-1/2" : "mt-4 ml-5 top-0"
+        isMobile ? "bottom-4 left-1/2 -translate-x-1/2" : "mt-7 ml-10 top-0"
       } bg-white dark:bg-gray-800 rounded-full p-2 shadow-2xl backdrop-blur-lg 
       bg-opacity-80 dark:bg-opacity-80 overflow-hidden transition-all duration-300 
       ${
@@ -43,7 +41,7 @@ function NavBar() {
         )}
 
         <div className={`flex items-center ${isMobile ? "gap-3" : "gap-8"} px-[1rem] py-3`}>
-          {!isMobile && <NavButton icon={Home} label="Home" />}
+          {!isMobile && <NavButton icon={Home} label="Home" onClick={() => navigate("/")} />}
 
           {!isExpanded && !isMobile && (
             <NavButton 
@@ -54,12 +52,12 @@ function NavBar() {
           )}
 
           {isExpanded && mainItems.map((item, index) => (
-            <NavButton key={index} {...item} isMobile={isMobile} />
+            <NavButton key={index} {...item} onClick={() => item.path && navigate(item.path)} isMobile={isMobile} />
           ))}
 
           {isMobile && !isExpanded && (
             <>
-              <NavButton icon={Home} label="Home" />
+              <NavButton icon={Home} label="Home" onClick={() => navigate("/")} />
               <NavButton 
                 icon={ChevronsRight} 
                 label="More"
@@ -69,11 +67,9 @@ function NavBar() {
           )}
 
           <div className={`flex items-center ${isMobile ? "gap-4" : "gap-8"} ml-auto`}>
-           
-            {/* </button> */}
-            <div className="p-2"> {/* Changed from button to div */}
-  <ThemeToggle/>
-</div>
+            <div className="p-2">
+              <ThemeToggle />
+            </div>
             {isExpanded && (
               <NavButton
                 icon={X}
@@ -101,8 +97,7 @@ const NavButton = ({ icon: Icon, label, onClick, isMobile }) => (
         rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 max-md:text-sm" />
       <Icon className={`${
         isMobile ? "h-5 w-5 mx-2" : "h-6 w-6"
-      } text-gray-700 dark:text-gray-300  
-      transition-colors duration-300`} />
+      } text-gray-700 dark:text-gray-300 transition-colors duration-300`} />
     </div>
     {!isMobile && (
       <span className="absolute -bottom-6 text-xs font-medium text-gray-600 

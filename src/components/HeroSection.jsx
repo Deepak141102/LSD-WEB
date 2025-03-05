@@ -1,8 +1,11 @@
 import React from "react";
 import { ArrowRight, Sparkles, Zap, Shield } from "lucide-react";
 import logo from "../assets/img/logo.png";
+import Skill from "./Skill";
+import ProjectSection from "./Project";
+import Testimonials from "./Testimonial";
 const Hero = () => {
-  return (
+  return (<>
     <div className="relative overflow-hidden -z-20">
       <div className="w-full h-[100px] p-5 flex justify-end">
         <img
@@ -107,6 +110,10 @@ const Hero = () => {
         </div>
       </div>
     </div>
+    <Skill/>
+    <ProjectSection/>
+    <Testimonials/>
+    </>
   );
 };
 
