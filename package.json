@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
-    "@react-three/drei": "^9.122.0",
-    "@react-three/fiber": "^9.1.0",
     "@tabler/icons-react": "^3.30.0",
     "@tailwindcss/vite": "^4.0.9",
     "class-variance-authority": "^0.7.1",
