@@ -4,7 +4,8 @@ import logo from "../assets/img/logo.png";
 import Skill from "./Skill";
 import ProjectSection from "./Project";
 import Testimonials from "./Testimonial";
-const Hero = () => {
+import Hero from "./HeroComponent";
+const HeroSection = () => {
   return (<>
     <div className="relative overflow-hidden -z-20">
       <div className="w-full h-[100px] p-5 flex justify-end">
@@ -29,22 +30,13 @@ const Hero = () => {
               <span>Introducing our new platform</span>
             </div>
 
-            <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight 
-  text-gray-900 dark:text-gray-100 transition-colors duration-300"
-            >
-              Design with confidence and
-              <span className="text-indigo-600 dark:text-indigo-400 ml-3">
-                creativity
-              </span>
-            </h1>
-
+          <Hero/>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
               Create stunning interfaces that captivate your audience and drive
               engagement with our intuitive design platform.
             </p>
 
-            <button className="px-8 py-3 bg-gray-800 dark:bg-indigo-600 text-white font-medium rounded-lg shadow-lg hover:bg-indigo-700 dark:hover:bg-indigo-700 transition-all flex items-center justify-center">
+            <button className="px-8 py-3 bg-gray-800 dark:bg-gray-600 text-white font-medium rounded-lg shadow-lg hover:bg-indigo-700 dark:hover:bg-indigo-700 transition-all flex items-center justify-center">
               Get started
               <ArrowRight size={18} className="ml-2" />
             </button>
@@ -117,4 +109,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroSection;
